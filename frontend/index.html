@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe ML - AI Music Recommendations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <i class="fas fa-music"></i>
+                    <span>Vibe ML</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active" data-page="home">
+                        <i class="fas fa-home"></i>
+                        Get Recommendations
+                    </a>
+                    <a href="#about" class="nav-link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        About
+                    </a>
+                </div>
+                <div class="nav-user">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home Page (Music Recommendations) -->
+        <div id="homePage" class="page active">
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Search Section -->
+                <section class="search-section">
+                    <div class="search-container">
+                        <h2>Discover Your Next Favorite Song</h2>
+                        <div class="search-box">
+                            <i class="fas fa-search search-icon"></i>
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                placeholder="Search by song name or artist..."
+                                autocomplete="off"
+                            >
+                            <div class="search-spinner" id="searchSpinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </section>
+
+                <!-- Trending Songs Section -->
+                <section class="trending-section" id="trendingSection">
+                    <div class="trending-container">
+                        <div class="trending-header">
+                            <h3>Trending Songs</h3>
+                            <p>Popular tracks to get you started</p>
+                        </div>
+                        <div class="trending-grid" id="trendingGrid">
+                            <!-- Trending songs will be inserted here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Current Playing Section -->
+                <section class="now-playing-section" id="nowPlayingSection" style="display: none;">
+                    <div class="now-playing-container">
+                        <div class="now-playing-header">
+                            <h3>Now Playing</h3>
+                        </div>
+                        <div class="current-song-card" id="currentSongCard">
+                            <!-- Current song details will be inserted here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendations Section -->
+                <section class="recommendations-section" id="recommendationsSection" style="display: none;">
+                    <div class="recommendations-container">
+                        <div class="recommendations-header">
+                            <h3>Recommended for You</h3>
+                            <p>Based on your current selection</p>
+                        </div>
+                        <div class="recommendations-grid" id="recommendationsGrid">
+                            <!-- Recommended songs will be inserted here -->
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- About Page -->
+        <div id="aboutPage" class="page">
+            <main class="about-main">
+                <div class="about-hero">
+                    <h1>About Vibe ML</h1>
+                    <p class="about-subtitle">
+                        Vibe ML is an intelligent music recommendation system that helps you discover new music through 
+                        advanced audio analysis and machine learning technology.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Machine Learning Powered</h3>
+                        <p>Using K-means clustering with distinct clusters, we group songs based on their audio features to find the most similar tracks.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-waveform"></i>
+                        </div>
+                        <h3>Audio Analysis</h3>
+                        <p>We analyze multiple audio features including danceability, energy, valence, acousticness, and tempo to understand each song's unique characteristics.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Vast Music Database</h3>
+                        <p>Our system is built on a comprehensive database of songs, allowing for diverse and accurate recommendations across different genres and styles.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-music"></i>
+                        </div>
+                        <h3>Personalized Discovery</h3>
+                        <p>Find new music based on songs you already love, helping you discover artists and tracks that match your musical taste.</p>
+                    </div>
+                </div>
+
+                <div class="how-it-works">
+                    <h2>How It Works</h2>
+                    <div class="how-it-works-content">
+                        <p class="how-it-works-intro">
+                            Vibe ML uses a sophisticated K-means clustering algorithm with 20 clusters to group songs based on their 
+                            audio features. Our recommendation process follows these steps:
+                        </p>
+                        
+                        <div class="process-steps">
+                            <ol class="steps-list">
+                                <li>Standardizes the song's audio features using StandardScaler</li>
+                                <li>Identifies which of the 20 clusters the song belongs to</li>
+                                <li>Finds songs within the same cluster</li>
+                                <li>Calculates Euclidean distances to find the most similar matches</li>
+                                <li>Enriches results with iTunes preview data</li>
+                            </ol>
+                        </div>
+
+                        <div class="audio-features-section">
+                            <p class="features-intro">The audio features we analyze include:</p>
+                            <div class="features-columns">
+                                <div class="features-column">
+                                    <ul class="features-list-simple">
+                                        <li>Acousticness</li>
+                                        <li>Energy</li>
+                                        <li>Liveness</li>
+                                        <li>Speechiness</li>
+                                        <li>Valence</li>
+                                    </ul>
+                                </div>
+                                <div class="features-column">
+                                    <ul class="features-list-simple">
+                                        <li>Danceability</li>
+                                        <li>Instrumentalness</li>
+                                        <li>Loudness</li>
+                                        <li>Tempo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- REMOVED: Music Player section completely -->
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p>Getting recommendations...</p>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <!-- Hidden audio element for playing music -->
+    <audio id="audioPlayer" preload="metadata"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
