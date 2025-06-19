@@ -1,0 +1,27 @@
+{
+  "name": "vibe-ml-frontend",
+  "version": "1.0.0",
+  "description": "🎵 Vibe ML - AI Music Recommendation Frontend",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Static build complete'",
+    "dev": "serve ."
+  },
+  "keywords": [
+    "music",
+    "recommendation",
+    "ai",
+    "machine-learning",
+    "audio-analysis",
+    "fastapi",
+    "javascript"
+  ],
+  "author": "Huzaifa5125",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Huzaifa5125/VibeMl.git"
+  },
+  "homepage": "https://github.com/Huzaifa5125/VibeMl#readme"
+}
