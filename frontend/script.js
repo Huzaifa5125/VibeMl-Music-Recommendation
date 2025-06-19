@@ -1,6 +1,7 @@
 class MusicRecommendationApp {
     constructor() {
-        this.baseURL = 'http://localhost:8000'; // Change this to your backend URL
+        // Update to your actual Hugging Face Space URL
+        this.baseURL = 'https://emtpro01-vibeml.hf.space';
         this.currentSong = null;
         this.recommendations = [];
         this.trendingSongs = [];
